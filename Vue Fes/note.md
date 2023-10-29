@@ -274,7 +274,7 @@
 - Vite: Stories of collaboration
 - Deep Dive to UnJS and Nuxt 3
 - [SOLID原則に基づくSFC実装](https://slides-one.vercel.app/1?clicks=1)
-- Composition API時代のPub/Subパターンでの状態管理
+- [Composition API時代のPub/Subパターンでの状態管理](https://speakerdeck.com/fuqda/subpatandenozhuang-tai-guan-li)
 - Exploring the Power of Error Handling in Vue JS
 - [フルスクラッチECの基盤であるNuxt 2を3に移行し、開発の効率性とパフォーマンスを高める](https://speakerdeck.com/wakkn/hurusukuratutiecnoji-pan-dearunuxt-2wo3niyi-xing-si-kai-fa-noxiao-lu-xing-topahuomansuwogao-meru)
 - Getting your head around your <head>
@@ -288,4 +288,4 @@
 ## その他
 
 - [AI IDE](https://x.com/Samuraism/status/1718244099617407286?s=20)
-- [script setupんい書き換える](https://x.com/pontaxx/status/1718184099775660268?s=20)
+- [script setupに書き換える](https://x.com/pontaxx/status/1718184099775660268?s=20)
