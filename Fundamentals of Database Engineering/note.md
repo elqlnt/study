@@ -45,8 +45,12 @@
 - 楽観ロック
   - ロックを取得しない
   - 更新時に、他の誰かから変更されたかどうかを調べ、だめだったらロールバックする
+  - ECサイト向き
 - 悲観ロック
   - 行ロック、テーブルロック、ページロック
+  - 厳密だが、コストが高い
+    - 特にSQL Server
+  - 何百万の行を更新しようとしたら、それをメモリに保持するのか？
 
 ### Consistency
 
@@ -454,6 +458,7 @@ SELECT name FROM test WHERE id = 1000
 - 占有ロック
 - つまり、排他ロックを取ると他のロックは取得できない
 - 今は行ロックを考える
+- `DELETE`・`UPDATE`・`INSERT`
 
 #### インテントロック
 
@@ -877,6 +882,18 @@ SELECT name FROM test WHERE id = 1000
     - その再分配が未だに問題だが...
 
 - なぜUberはPostgresからMySQLへ乗り換えたか
+  - Inefficient architecture for writes(write amplification)
+    - タプルの位置が変わったらすべてのインデックスをアップデートする必要があるが、現実問題としてそんなたくさんのインデックスを張るか？
+    - でも実際にこうだと、SSDの寿命に関わってくる
+  - Inefficient data replication
+  - Issues with table corruption
+    - これはわけわからんらしい
+    - バグがあるのはPostgresではなくて自身ではという指摘？
+  - Poor replica MVCC support
+    - これもよくわからんらしい
+  - Difficulty upgrading to newer releases
+    - これはそれはそうらしい
+- なんか微妙らしい
 
 - `NULL`はパフォーマンスを向上させるか？
   - 0でもなんでも32bitであれば、そのカラムの値はメモリを占拠する
@@ -885,6 +902,12 @@ SELECT name FROM test WHERE id = 1000
   - `NULL`を扱うときのSQL文の違い
   - インデックス？DBMSによるらしい
   - 外部結合のときに`NULL`とか必要だね
+
+- Write AmplificationはSSDにおいて問題となるらしい
+  - ある1行だけを変更しても、他のカラムのインデックスをいじる必要があって、結果的に書き込むが増幅する現象
+  - UPDATEがやばい
+
+- 楽観的ロックと悲観的ロック
 
 - SQL Serverにおいて、行ロックのコストは高い
   - メモリ不足になりやすいらしい
@@ -912,3 +935,4 @@ SELECT name FROM test WHERE id = 1000
 - [PostgreSQL と SQL Server の主な違い](https://cloud.google.com/learn/postgresql-vs-sql?hl=ja)
 - [コンシステントハッシング](https://qiita.com/hharu/items/eca1338c2c0effd0a15d)
 - [増永教授のDB特論⑨「NULL」](https://www.sraoss.co.jp/tech-blog/db-special-lecture/masunaga-db-special-lecture-9/)
+- [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-JP/blog/postgres-to-mysql-migration/)
