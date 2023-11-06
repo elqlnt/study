@@ -6,6 +6,88 @@
 
 ![アンケート](https://pbs.twimg.com/media/F9hByJ-bwAA2FUR?format=jpg&name=large)
 
+### Storybook・Chromatic
+
+- うちだとすでにある自動テストと役割が被る部分が出てくるかも
+- UIを管理するためのものであると同時に、UIテストのための場でもある
+- これはある程度の規模まで行くと有料になるので、storycap+reg-suitで代替することもできるらしい？
+
+#### Storybook
+
+- React、Vue、Angularなどに対応する**UIカタログ**
+  - 無料
+  - 基本はUIテストだが、アドオンを導入することで様々なことができる
+    - Storyshots?
+- UIのテスト
+  - 表示するテキストが長くなったときにレイアウトが崩れないか？
+  - nullだった場合の表示は？
+  - パターンは開発者が考える必要があるけど
+- サーバー側と同期せずに(データを別に準備することで)UI開発ができる
+
+- あるコンポーネントに対して、複数のstory(状態)があると考える
+  - この複数のstoryは、上述したように開発者が考える必要がある
+  - ここで考えるのは、検証する価値のある(interestingな)コンポーネントの状態
+    - テキストが長い場合など
+
+##### 実際に動かしてみる
+
+- 初期設定を終えると`.storybook`ディレクトリと`src/stories`ディレクトリが生成される
+  - `.storybook/.main.js`
+    - どのファイルをstoryとして扱うか
+- `run`するとローカルサーバーが立ち上がり、そこから確認できる
+- storyを書く
+  - メタデータを書く
+    - storyのタイトルなどを書く(大体はプロジェクトのディレクトリ階層をそのままタイトルとする)
+    - `default export`する
+  - テンプレートを作成
+    - 必須ではないが、引数をどのようにコンポーネントに渡すかなどを指定する
+    - 複数のstoryを作成する際に便利
+  - storyの設定
+    - 名前付き`export`されたstoryがStorybook上で閲覧可能
+    - それぞれのstoryにわたすargsなどを設定する
+- 注意が必要な点
+  - webpackでバンドルするとき
+  - 外部スタイルシートやフォントの読み込み
+  - 画像などの読み込み
+  - storyごとの共通設定や状態
+
+#### Chromatic
+
+- Storybookをcdnへデプロイしたもの
+  - Storybookの共有を可能に
+  - UIテストによって検知した差分をクラウド上でレビュー可能に
+    - 開発者+デザイナーなどの他部門メンバー+PMなど
+  - 過去の変更やコンポーネントの一覧を可視化
+- UI TestとUI Review
+- UI Testは別のツールでも代用できるがUI Reviewは開発メンバー以外(デザイナーやPM)にもレビュー依頼が可能で連携が
+  - この部分はChromatic開発陣が問題視していたポイント
+  - 今やっているようなスクショ張って...というのがいらなくなるかも？
+
+- Github上のプロジェクトと連携するだけでOK
+  - コミット情報にSnapshotを紐づけてくれる
+    - Giithub Actionで設定すれば、CIに組み込むこともできる
+  - 細かい設定はpackage.json等にする
+  - 基本無料だが大きいプロジェクトになるとお金がかかる場面が出てきそう
+    - スナップショット数
+    - 対応ブラウザ
+    - Story数
+    - ビューポイント数
+    - ビルド数
+  - 必要ないときはスナップショットを取らないなどの対応をした方が良い
+    - TurboSnap
+      - vite-plugin-turbosnapを導入することでViteを用いたプロジェクトでも利用可能
+    - Chromatic使わなくても、コミットにフックして色々できる？
+      - [storycap+reg-suitを利用したビジュアルリグレッションテストをCodeBuild上で実行する](https://blog.mmmcorp.co.jp/2022/08/29/storycap-reg-suit-codebuild/)
+
+![UIレビュー](https://cdn-ak.f.st-hatena.com/images/fotolife/P/Panda_Program/20211208/20211208202651.png)
+
+#### 参考
+
+- [Storybookとは？Storybookを用いたフロント開発](https://zenn.dev/fullyou/articles/853b77a3ce9144)
+- [Chromaticを導入しました！](https://zenn.dev/fullyou/articles/3b2d1bd1e6ce79)
+- [【Storybook】Chromaticで生成するスナップショット数を最適化するTurboSnap](https://qiita.com/KokiSakano/items/0f5df59849b9970f62d6)
+- [Storybook と Chromatic でビジュアルリグレッションテストを実施する](https://devblog.thebase.in/entry/2021/12/08/203039)
+
 ## 基調講演
 
 - Evan自身もミスった部分とうまく行った部分があると感じている
