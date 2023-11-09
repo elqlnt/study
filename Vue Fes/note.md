@@ -161,6 +161,9 @@
     - **UIレビュー**→コードレビュー→コード修正のサイクル
     - ビジュアルリグレッションテスト(Vue3にも)
 
+- 元はと言えば、お客さんに手順の一部を持ってもらうためにフロントを開発した
+  - UX/UIで問い合わせも減るかも
+
 ## Vue.jsを活用して開発リードタイムが1/3になった話(→価値を生む技術提案)
 
 - 発案、提案ミスって皇族の開発評価が地獄だった
@@ -333,7 +336,7 @@
 
 - キーノート
 - [走りながらエンジンを交換する 〜 大規模プロダクトを成長させつつVue 3にするには 〜](https://speakerdeck.com/bengo4com/20231028)
-- [社内UIコンポーネントライブラリがエンジニアチームにもたらした本当の価値]()
+- [社内UIコンポーネントライブラリがエンジニアチームにもたらした本当の価値](https://drive.google.com/file/d/17KAVD7fQ2N0qdIDx9xYiuGXnoeeulwk6/view?usp=drive_link)
 - [Vue.jsを活用して開発リードタイムが1/3になった話(→価値を生む技術提案)](https://speakerdeck.com/lmi/vuefes2023-link-and-motivation)
 - 「Youはなぜコントリビュータに？」論より動くもの.fm 出張版
 - [Vue.jsプロジェクト設計のベストプラクティスを求めて](https://speakerdeck.com/cyber_snufkin/28-vue-fes-tokyo-vue-dot-js-puroziekutoshe-ji-nobesutopurakuteisuwoqiu-mete)
