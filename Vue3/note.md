@@ -123,7 +123,7 @@
 - 同様に`emit`も変わる
   - `defineEmits()`
 
-# 参考
+## 参考
 
 - [Vue3 Composition APIにおいて、Providerパターン(provide/inject)の使い方と、なぜ重要なのか、理解する。](https://qiita.com/karamage/items/4bc90f637487d3fcecf0)
 - [なぜ、Vue Composition APIを使うのか、理解する【メリット/デメリットまとめ】](https://qiita.com/karamage/items/7721c8cac149d60d4c4a)
