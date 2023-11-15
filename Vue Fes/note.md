@@ -374,3 +374,4 @@
 
 - [AI IDE](https://x.com/Samuraism/status/1718244099617407286?s=20)
 - [script setupに書き換える](https://x.com/pontaxx/status/1718184099775660268?s=20)
+- [サイト運営者必見！　2024年の障害者差別解消法の改正法施行に備える “Webアクセシビリティ” に対応したサイトを作るために必要なこと](https://www.trans-plus.jp/blog/service/202305_webaccessibility_2)

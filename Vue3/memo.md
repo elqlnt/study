@@ -56,6 +56,48 @@
     - メンテナンスリリースは続けるけど、機能追加は行わない
   - そうすると@importが使えなくなる
 
+- Viteにする理由の一つとして、Nodeのバージョン上げたときにWebpackの動作検証するんだったら変えてしまえばいい
+
+- blowserlist
+  - これを元に他のOSSが自動で判断してくれる
+    - [Babel](https://zenn.dev/sa2knight/articles/67f6f5cc4ed5e26e391c)
+      - どのように変換するか？は本来開発者が適切なプラグインを入れる必要がある
+      - 必要なプラグインを自動で選択して、最新のES6+を動く状態にしてくれるプラグインがbabel/preset-env
+      - .babelrcのプラグインに設定する
+      - あとはbrowserslistに記述
+      - babelがやってくれるのは構文なので、Promiseを使うにはcore-jsが必要らしい
+        - pluginsにuseBuiltInsとcorejsを指定する
+    - ESLint
+      - これもブラウザがそれぞれ対応しているやつ、そうでないやつを
+      - eslint-plugin-compatをpluginsに記述する
+      - あとrules
+    - [PostCSS](https://morishitter.hatenablog.com/entry/2015/08/03/164424)
+      - CSSパーサーとそのASTを操作するためのAPIのみを提供する
+      - つまり、ユーザーがこれ単体で使うことはない？(依存先としてインストールされる？)
+        - Autoprefixerやstylelintが利用
+      - jsのトランスパイルのCSS版みたいな感じ？
+      - 変数が使えたり、ネストができたりする
+      - 生成されたCSSに対して後処理ができる(プリプロセッサとしても使える)
+        - Autoprefixer
+          - ベンダープレフィックスを自動で付与する
+            - chromeだったらwebkit
+          - 各ブラウザで機能を動作させるためには、プロパティや値の先頭にプレフィックスを付ける必要がある(試験的な機能とか)
+          - ビルド時に設定するには、Viteのcssオプションに指定する
+- [Browserslist でサポートブラウザを設定しよう](https://devblog.thebase.in/entry/2021/12/05/110000)
+
+- eslintのenv:browserは、ブラウザを使うときに出てくる`window`などのグローバルな値を使ってもエラーが出ないようにする
+
+- qsはクエリの解析、文字列化をするライブラリ
+  - `parse`は文字列をオブジェクトに変換する
+  - `stringigy`はオブジェ宇土をURL形式の文字列に変換する
+
+- SassにはSASS記法とSCSS記法がある
+- こいつをコンパイルするのがnode-sass
+
+- stylelint?
+  - プロパティの順番をアルファベット順にしてくれる？
+
 ## 参考
 
 - [[LibSass非推奨化] node-sassとのお別れ ~ Dart Sassへ移行する](https://deep.tacoskingdom.com/blog/48)
+- [巷で人気のViteを触ってみた](https://yurika1202.com/post/coding/vite/)
