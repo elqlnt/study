@@ -101,3 +101,13 @@
 
 - [[LibSass非推奨化] node-sassとのお別れ ~ Dart Sassへ移行する](https://deep.tacoskingdom.com/blog/48)
 - [巷で人気のViteを触ってみた](https://yurika1202.com/post/coding/vite/)
+
+- Node.js更新
+  - node-sass(多分後で消す)
+  - Viteではサポートされないので
+- Vite更新準備
+  - パッケージインストール
+- Viteに更新
+  - config更新
+- productionビルドの設定を更新
+- 不要なパッケージを削除
