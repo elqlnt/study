@@ -1,4 +1,4 @@
-# 以降メモ
+# 移行メモ
 
 - eslint
 - prettier
@@ -111,3 +111,10 @@
   - config更新
 - productionビルドの設定を更新
 - 不要なパッケージを削除
+
+- rollupにエントリポイント？
+- cssは本当にminifyされているか
+  - 改行など
+- vite-plugin-html-template
+- vite-plugin-checker
+<https://zenn.dev/toaru_fe/articles/5128fb6a6c21d2>
