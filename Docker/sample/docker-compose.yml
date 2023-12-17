@@ -1,0 +1,20 @@
+# docker-compose で使用するバージョンを定義しています。2023年1月時点では、3.9が最新です。
+version: "latest"
+# サービス (コンテナ) を定義します。
+services:
+  # postgres をサービスとして定義しました。
+  postgres:
+    build: ./image/postgres
+    # コンテナの名前を指定します。
+    container_name: PostgresDB
+    # 環境変数を設定します。
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Password00
+      - POSTGRES_DB=sample_table
+    ports:
+      - 5432:5432
+    volumes: # 名前付きボリュームの割り当て定義を追加
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
