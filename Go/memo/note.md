@@ -670,3 +670,8 @@ func main() {
   go c.Inc("somekey")
  }
 ```
+
+### 参考
+
+- [Goのinterfaceがわからない人へ](https://qiita.com/rtok/items/46eadbf7b0b7a1b0eb08)
+- [【Go】このコードの意味が分かれば、ゴルーチンの基本は大丈夫](https://zenn.dev/farstep/articles/f712e05bd6ff9d)
