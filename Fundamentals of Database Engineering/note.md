@@ -315,6 +315,11 @@ SELECT name FROM test WHERE id = 1000
   - オフラインでしかやれないのが一般的
   - 断片化率が一定場を超えたらこちらが推奨されているらしい
 
+- 断片化はページ密度の低下、ページ連続性の低下が発生している状態
+  - INSERTによるページ内のデータ追加
+  - UPDATEによるインデックスキーの変更によるデータの移動
+  - ページ内の列サイズを変更することによる断片化
+
 ### 大規模DBとなったら
 
 - インデックス
@@ -936,3 +941,4 @@ SELECT name FROM test WHERE id = 1000
 - [コンシステントハッシング](https://qiita.com/hharu/items/eca1338c2c0effd0a15d)
 - [増永教授のDB特論⑨「NULL」](https://www.sraoss.co.jp/tech-blog/db-special-lecture/masunaga-db-special-lecture-9/)
 - [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/en-JP/blog/postgres-to-mysql-migration/)
+- [SQL Server の断片化発生の 2 種類のパターン](https://blog.engineer-memo.com/2012/04/16/sql-server-%E3%81%AE%E6%96%AD%E7%89%87%E5%8C%96%E7%99%BA%E7%94%9F%E3%81%AE-2-%E7%A8%AE%E9%A1%9E%E3%81%AE%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3/)
