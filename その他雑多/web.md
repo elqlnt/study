@@ -33,6 +33,7 @@
 ### 参考
 
 - [SPA, SSG, SSRはどんなアプリケーションに向いている？ （前編）](https://note.com/funteractive_inc/n/n3c7275b11b8d)
+- [SPAのログイン認証のベストプラクティスがわからなかったのでわりと網羅的に研究してみた〜JWT or Session どっち？〜](https://qiita.com/Hiro-mi/items/18e00060a0f8654f49d6)
 
 ## クッキー
 
@@ -42,6 +43,15 @@
 - それをテキストとかで保存する仕組みがクッキー
 - セッションはその識別番号を維持したやり取りの一連の流れ
 - 実用では、識別番号が安易に推測されないようなものであることが大事
+
+![セッション](https://img.docswell.com/page/47ZM1P3LE3.jpg)
+
+## JWT(Json Web Token)
+
+- ヘッダ、ペイロード、署名の3つからなる
+- これらはBase64でエンコードされている
+- ユーザーに関する情報などを含めたJSONを秘密鍵で電子署名
+- サーバー側に状態を持たなくて良い
 
 ## CORS
 
@@ -105,6 +115,7 @@
       - `HOST`ヘッダが存在すること
       - `HOST`ヘッダが正規サービスのホスト名であること
       - `ORIGIN`ヘッダが`Access-Control-Allow-Origin`ヘッダと同じであること
+    - `Access-Control-Max-Age`の期間内だとCSRFが起きうる？
 - CORSの仕様によりクロスドメインは制限されるが、このときもリクエスト自体は宛先に到達している
   - 逆に、攻撃者がCSRFトークンを取得しようとしたとき。処理はされるがレスポンスを読み取らせてくれない
 
@@ -137,6 +148,7 @@
 - [Web API の CSRF 対策まとめ](https://qiita.com/okamoai/items/044c03680766f0609d41)
 - [このWeb APIってCSRF対策出来てますか？って質問にこたえよう](https://qiita.com/maruloop/items/e14d02299bd136f4b1fc)
 - [SPA + WebAPI でアプリケーションを構築するときの CSRF 対策についてのメモ](https://kimuson.dev/blog/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89/csrf_spa/)
+- [SPAセキュリティ超入門](https://www.docswell.com/s/ockeghem/K2PPNK-phpconf2022)
 
 ## XSS
 
@@ -146,7 +158,7 @@
 
 ## Keycloak
 
-前提としてSAMLとOAuthについて
+↓SAMLとOAuthについて
 
 ### SAML
 
@@ -173,7 +185,7 @@
 
 ### OAuth
 
-- 異なるサービス感でユーザーの認証情報を安全かつ制御可能な方法で共有するためのスタンダード
+- 異なるサービス間でユーザーの認証情報を安全かつ制御可能な方法で共有するためのスタンダード
 - サードパーティのアプリケーションがユーザーのリソースにアクセスするための委任されたアクセス権を取得するプロトコルとして使用される
 - 以下の主要なコンポーネントで構成される
   - リソースオーナー
@@ -216,3 +228,4 @@
 ## 参考
 
 - [SAMLとOAuthの違い](https://admina.moneyforward.com/jp/blog/saml-sso)
+- [一番分かりやすい OAuth の説明](https://qiita.com/TakahikoKawasaki/items/e37caf50776e00e733be)
