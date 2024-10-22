@@ -2,7 +2,7 @@
 theme: light-icons
 # https://lightvue.org/getting-started/light-icons/
 layout: intro
-image: './images/main-visual.jpg'
+image: 'https://vuefes.jp/2024/main-visual.jpg'
 title: VueFes2024
 class: text-left
 drawings:
@@ -61,7 +61,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 ---
 
-# Vue/Viteまわりの機能紹介
+# 機能紹介系
 
 - Gems of Nuxt: 8 Features Every Nuxt Developer Should Know!
 - [Demystifying Vite Internals](https://speakerdeck.com/nozomuikuta/demystifying-vite-internals)
@@ -146,10 +146,14 @@ url: 'https://oxc.rs/'
 
 > As the author of one of the most widely used frontend frameworks, I’ve spent significant effort researching every layer of the JavaScript tooling stack, assembling hundreds of dependencies, and designing complex abstractions on top of them. The goal was always to give end users a cohesive, out-of-the-box development experience. These efforts eventually led to the creation of Vite in 2020.
 
+<v-clicks>
+
 - フロントエンド開発のエコシステムは進化を続けているが課題を抱えている
   - 無数のサードパーティ性のライブラリに依存しており、一貫性を保つために色々無理をしている
   - 異なるツール間でのパースやシリアライズの重複によってパフォーマンスが頭打ちに
 - **これはJavaScriptのエコシステム全体の問題**
+
+</v-clicks>
 
 ---
 layout: iframe-right
@@ -213,5 +217,58 @@ layout: center
 # Vueのお話
 
 - Vue3.5について
-  - Trusted Types API
 - Vaporモード
+
+---
+
+# Vueの歩み
+
+- Vue2
+  - Options API
+- Vue2.7
+  - Composition API
+- Vue3.3
+  - TypeScript連携の強化
+- Vue3.4←イマココ
+  - `defineModel`
+- Vue3.5←最新はココ
+  - Trusted Types API
+- Vue3.6
+  - Vaporモード(実験的)
+  - より良いパフォーマンス
+
+---
+
+# 便利そうな機能
+
+- Trusted Types API
+  - XSS対策
+  - テンプレート内での型安全なDOM操作
+- `defineModel`
+  - v-modelのカスタム定義
+- `slot`の型安全化
+
+---
+
+# Vaporモード？
+
+---
+layout: iframe
+url: 'https://talks.sxzz.moe/2024-10-vue-fes-japan/5?clicks=4'
+---
+
+---
+layout: center
+---
+
+# その他技術周りのお話し
+
+---
+
+# その他技術周りのお話し
+
+- デザインシステムとプロダクトの分離
+  - Zeroheight
+- AIを活用した事例
+  - Composition API/TypeScriptへの書き換え
+  - プロトタイピング
