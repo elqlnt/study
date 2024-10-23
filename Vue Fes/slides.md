@@ -72,8 +72,8 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - [Async State Management with Vue Router](https://data-loaders.netlify.app/1)
 - [Vue Vapor: Reinvention](https://talks.sxzz.moe/2024-10-vue-fes-japan/1)
 - [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
+- [Vue 3 と Svelte 5 のランタイムを比較する 〜技術を一段深く理解する〜](https://docs.google.com/presentation/d/1xvcDewSssDweawP3ZnkQi0L-1AjaOl5oD8YFiiZuk3A/edit#slide=id.p)
 - [Piniaの現状と今後](https://speakerdeck.com/waka292/pinianoxian-zhuang-tojin-hou)⭐
-- [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
 
 ---
 
@@ -82,7 +82,6 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - Trusted Types APIとVue.js⭐
 - [v-modelの歩みを振り返る](https://speakerdeck.com/bengo4com/20241019-cloudsign-vuefesjapan2024-2)⭐
 - [Vue SFCのtemplateでTypeScriptの型を活用しよう](https://speakerdeck.com/tsukkee/vue-sfcnotemplatetetypescriptnoxing-wohuo-yong-siyou)⭐
-- [Vue 3 と Svelte 5 のランタイムを比較する 〜技術を一段深く理解する〜](https://docs.google.com/presentation/d/1xvcDewSssDweawP3ZnkQi0L-1AjaOl5oD8YFiiZuk3A/edit#slide=id.p)
 - [Deep dive into Nuxt Server Components](https://speakerdeck.com/wattanx/deep-dive-into-nuxt-server-components)
 - [Vitest Browser Mode への期待](https://speakerdeck.com/odanado/vitest-browser-mode)
 - [Protocol BuffersとNuxt3で開発生産性を上げるためのスキーマファースト開発の紹介](https://speakerdeck.com/tokuda109/protocol-bufferstonuxt3dekai-fa-sheng-chan-xing-woshang-gerutamenosukimahuasutokai-fa-noshao-jie)
@@ -728,6 +727,12 @@ url: 'https://speakerdeck.com/player/f34ec1469d5244b7a791f40fca66b41e?slide=110'
   - このあとにAIを活用した書き換えのお話もします
 
 </v-clicks>
+
+---
+layout: center
+---
+
+<span class="text-2xl">ちなみに仮想DOMを使用していない<logos-svelte />というフレームワークもあります</span>
 
 ---
 
