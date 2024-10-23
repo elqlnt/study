@@ -31,6 +31,8 @@ level: 2
 <div v-click class="absolute transform">
   マークダウンベース+TailwindCSSの形式でスタイリングが可能
   <br>
+  表示制御にVueのディレクティブが使用可能
+  <br>
   pdfやpptxに変換可能
 </div>
 
@@ -46,9 +48,11 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 # 今回のテーマ
 
 - Vueを含めたJavaScriptの将来像など
-- 機能紹介系
-- 技術的課題を乗り越えたお話
+- Vue3系の機能紹介系
+- AI活用術/技術的課題を乗り越えたお話
 
+去年はVue2がEOLを迎える直前だったため、マイグレーションの話題がホットでしたが、今年はVueの最先端～将来の話が多かったです。
+<br>
 去年も同様でしたが、セッションが同時進行していくため、聴講できなかったセッションも多くあります。<span class="opacity-50">(⭐が聴講したセッション)</span>
 
 ---
@@ -68,8 +72,8 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - [Async State Management with Vue Router](https://data-loaders.netlify.app/1)
 - [Vue Vapor: Reinvention](https://talks.sxzz.moe/2024-10-vue-fes-japan/1)
 - [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
-- Piniaの現状と今後⭐
-- [Vue3の一歩踏み込んだパフォーマンスチューニング 2024](https://speakerdeck.com/hal_spidernight/vue3no-bu-ta-miip-ndapahuomansutiyuningu2024)⭐
+- [Piniaの現状と今後](https://speakerdeck.com/waka292/pinianoxian-zhuang-tojin-hou)⭐
+- [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
 
 ---
 
@@ -88,7 +92,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 ---
 
-# 技術的課題を乗り越えたお話
+# AI活用術/技術的課題を乗り越えたお話
 
 - [普通のエンジニアが頑張って30万行のNuxt3バージョンアップした話](https://speakerdeck.com/konkarin/vue-fes-japan-2024-nuxt3-version-up)
 - [フロントエンドエンジニアのいない組織でVue.jsを導入するまで](https://speakerdeck.com/paycloud/arara_vue-fes-japan-2024)
@@ -98,7 +102,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - [Vue.js、Nuxtの機能を使い、大量のコピペコードをリファクタリングする](https://speakerdeck.com/igayamaguchi/⭐vue-dot-js-nuxtnoji-neng-woshi-i-da-liang-nokopipekodoworihuakutaringusuru)
 - [段階的なレンダリングを実装してUXを最大化するためのTips](https://speakerdeck.com/reibomaru/duan-jie-de-narentarinkuwoshi-zhuang-siteuxwozui-da-hua-surutamenotips)⭐
 - [2万ページのSSG運用における工夫と注意点](https://speakerdeck.com/chinen/vue-fes-japan-2024)
-- [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
+- [Vue3の一歩踏み込んだパフォーマンスチューニング 2024](https://speakerdeck.com/hal_spidernight/vue3no-bu-ta-miip-ndapahuomansutiyuningu2024)⭐
 
 --- 
 
@@ -116,13 +120,13 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 layout: center
 ---
 
-# エコシステムのお話
+# エコシステムのお話<mdi-leaf class="text-green" />
 
 ---
 layout: center
 ---
 
-# 最初に登場したOxcとは
+# いきなりですが、最初に登場したOxcについて...
 
 ---
 layout: iframe-right
@@ -146,42 +150,76 @@ url: 'https://oxc.rs/'
 
 [Announcing VoidZero - Next Generation Toolchain for JavaScript](https://voidzero.dev/posts/announcing-voidzero-inc)
 
-> Over the years, many excellent tools have emerged to address the increasing scale and complexity of JavaScript applications. However, the ecosystem has always been fragmented: every application relies on a myriad of third-party dependencies, and configuring them to work well together remains one of the most daunting tasks in the development cycle.
+<div v-if="$clicks === 0">
+
+> Over the years, many excellent tools have emerged to address the increasing scale and complexity of JavaScript applications. However, <span class="text-red">the ecosystem has always been fragmented: every application relies on a myriad of third-party dependencies</span>, and configuring them to work well together remains one of the most daunting tasks in the development cycle.
 
 > As the author of one of the most widely used frontend frameworks, I’ve spent significant effort researching every layer of the JavaScript tooling stack, assembling hundreds of dependencies, and designing complex abstractions on top of them. The goal was always to give end users a cohesive, out-of-the-box development experience. These efforts eventually led to the creation of Vite in 2020.
 
-<v-clicks>
+> The trust the community has placed in Vite made me reflect deeply on its future. While Vite has greatly improved the high-level developer experience, internally, it still relies on various dependencies, with abstractions and workarounds to smooth over inconsistencies. Performance-wise, <span class="text-red">it remains bottlenecked by duplicated parsing and serialization costs across different tools, and it can't fully leverage native tooling like esbuild due to feature constraints and limited customizability.</span>
 
-- フロントエンド開発のエコシステムは進化を続けているが課題を抱えている
+</div>
+<div v-else>
+
+> これまでの間、JavaScriptアプリケーションの規模や複雑さの増大に対応するために、多くの優れたツールが登場しました。しかし、<span class="text-red">エコシステムは常に断片的であり、各アプリケーションは無数のサードパーティの依存関係に依存しており</span>、それらをうまく組み合わせて動作させることは、開発プロセスの中でも最も難しい作業の一つであり続けています。
+
+> 最も広く使われているフロントエンドフレームワークの一つの作者として、私はJavaScriptツールチェーンの各層を調査し、何百もの依存関係を組み合わせ、それらの上に複雑な抽象化を設計するために多大な努力を注ぎました。常に目指していたのは、エンドユーザーに対して統一された、即座に使える開発体験を提供することでした。この努力が最終的に2020年にViteの誕生へと繋がったのです。
+
+> Viteに対するコミュニティの信頼を受け、私はその未来について深く考えるようになりました。Viteは高いレベルでの開発者体験を大幅に向上させましたが、内部では依然として多くの依存関係に頼っており、矛盾を解消するための抽象化や回避策が必要です。<span class="text-red">パフォーマンス面では、異なるツール間で重複するパースやシリアライゼーションによるボトルネックがあり、機能制約やカスタマイズ性の限界のため、esbuildのようなネイティブツールを十分に活用できていません。</span>
+
+</div>
+
+<v-clicks at="2">
+
+- エンドユーザーに対して統一された開発体験を提供することを念頭に作られたViteは、今やVue以外でも広く使われるように
+- しかし...
   - 無数のサードパーティ性のライブラリに依存しており、一貫性を保つために色々無理をしている
   - 異なるツール間でのパースやシリアライズの重複によってパフォーマンスが頭打ちに
-- <span class="font-bold text-emerald">これはJavaScriptのエコシステム全体の問題</span>
 
 </v-clicks>
 
 ---
-layout: iframe-right
-url: 'https://voidzero.dev/'
+layout: center
 ---
 
-# 
+<span class="font-bold text-emerald text-2xl">これはViteに限った話ではなく、JavaScriptのエコシステム全体の問題</span>
 
-Evan達はこのような課題を解決するべく、VoidZeroを立ち上げて活動を始めました
+---
+layout: iframe-right
+url: 'https://voidzero.dev/'
+clicks: 2
+---
+
+Evan達はこのような課題を解決するべく、VoidZeroを立ち上げて活動を始めました。
+
+<div v-if="$clicks === 0">
 
 > - Unified: It should use the same AST, resolver, and module interop for all tasks, eliminating inconsistencies and reducing redundant parsing costs.
 > - High Performance: The foundational components should be written in a compile-to-native language and designed from the ground up for speed, unlocking more ambitious optimizations.
 > - Composable: Each component of the toolchain should be independently consumable, offering building blocks for advanced customization.
 > - Runtime Agnostic: The core of the toolchain should not be coupled to any specific JavaScript runtime so that developers can enjoy the same benefits across all environments.
 
+</div>
+<div v-else>
+
+> - 統一性: すべてのタスクで同じAST、リゾルバ、およびモジュールインタロップを使用し、不整合を排除し、冗長なパースコストを削減するべきです。
+> - 高パフォーマンス: 基本的なコンポーネントはネイティブにコンパイルされる言語で記述され、速度を最優先に設計されるべきで、より野心的な最適化を可能にします。
+> - コンポーザブル: ツールチェーンの各コンポーネントは独立して使用可能で、高度なカスタマイズのためのビルディングブロックを提供するべきです。
+> - ランタイム非依存: ツールチェーンのコアは特定のJavaScriptランタイムに依存せず、すべての環境で同じメリットを享受できるようにするべきです。
+
+</div>
+
+
 ---
 
-# Viteが抱えている課題
+# Viteにおける課題
 
 - 開発環境と本番環境で異なるビルドツール
   - 開発環境：esbuild
   - 本番環境：Rollup
+- esbuild(Go製)のパフォーマンスを最大限に活かせていない
 
-先程出てきたRolldownは、上記の課題を解決するために、新たにRustで作成されているものです。
+先程出てきたRolldownも、先の課題を解決するために新たにRustで作成されているものです。
 <br>
 これによって差異がなくなる上に、パフォーマンスが非常に向上します。
 
@@ -193,7 +231,7 @@ Evan達はこのような課題を解決するべく、VoidZeroを立ち上げ�
 
 # 時代はRust🦀
 
-メモリ効率やパフォーマンス、バンドルサイズで優位性があるRustに...
+Oxcのツール群はメモリ効率やパフォーマンス、バンドルサイズで優位性があるRust製...
 
 ||比較対象|速さ|互換性|
 |---|---|---|---|
@@ -218,13 +256,19 @@ layout: center
 layout: center
 ---
 
-# 次のVite6からこれらに置き換わっていきます
+<span class="text-5xl">次のVite6からこれらに置き換わっていきます</span>
 
 ---
 layout: center
 ---
 
-# Vue自身のお話
+<span class="text-2xl">また、Viteと同様にOxcはWeb開発において広く使われていくことになるかもしれません</span>
+
+---
+layout: center
+---
+
+# Vue自身のお話<logos-vue />
 
 ---
 layout: two-cols
@@ -238,9 +282,9 @@ layout: two-cols
   - Composition API
 - Vue3.3
   - TypeScript連携の強化
-  - `defineSlots`
+  - `defineSlots`など
 - Vue3.4<span class="text-red">←イマココ</span>
-  - `defineModel`
+  - `defineModel`など
 
 ::right::
 
@@ -249,11 +293,23 @@ layout: two-cols
 - Vue3.5←最新はココ
   - メモリ効率<light-icon icon="trending-up" />
   - Trusted Types API
-  - `useTemplateRef`
+  - `useTemplateRef`など
 - Vue3.6
   - `Suspense`
   - Vaporモード(実験的)
-  - より良いパフォーマンス
+  - さらなる最適化
+
+</v-click>
+
+<v-click>
+
+ちなみにVue3.5のコードネームは
+<br>
+<div class="h-10 flex items-center">
+  <span class="font-bold text-3xl text-rose">Tengen Toppa Gurren Lagann</span>
+</div>
+<br>
+らしい
 
 </v-click>
 
@@ -264,32 +320,36 @@ layout: center
 # ...Composition API+TypeScriptの話しかない
 
 ---
+
+- そもそもOptions APIはTypeScriptとの親和性が微妙
+  - 内部的にめちゃくちゃに複雑なことをしなければならない
+  - 様々な機能に対して型推論が完璧にはできていない
+
+↓[Vueの公式](https://ja.vuejs.org/guide/extras/composition-api-faq.html#relationship-with-options-api)より
+
+>ここ数年、多くのフロントエンドの開発者たちが TypeScript を取り入れ、より堅牢なコードを書き、より安心して変更を加えられるようにしていて、また IDE のサポートと共にすばらしい開発体験を提供してくれています。しかしながら、2013 年に Options API が生まれた当時、型推論の考慮がない状態でデザインされました。 Options API に型推論を取り入れるためには <span class="text-red">とてもありえない複雑な型定義</span>をしなければなりませんでした。これだけの努力をしても、 Options API の型推論は<span class="text-red">ミックスインや依存関係の注入により壊れてしまいます。</span>
+
+---
 layout: two-cols
 ---
 
-- そもそもOptions APIはTypeScriptとの親和性が微妙だった
-  - 内部的にめちゃくちゃに複雑なことをしなければならない
-  - 様々な機能に対して型推論が完璧にはできていない
+- また、大規模開発になるほどコードを読むのがツライ
+  - `data`<light-icon icon="arrows-horizontal" />`computed`<light-icon icon="arrows-horizontal" />`methods`が分離
 
 <v-clicks depth="2">
 
 - Vue2.6で満を持してのComposition APIサポート
   - 論理的関心の対象がコード上でまとまるように
-    - template<light-icon icon="arrows-horizontal" />methods<light-icon icon="arrows-horizontal" />styleが分離していた
-  - 状態を持った関数を再利用する仕組み
-    - ミックスインは公式でもおすすめされていなかった
-      - プロパティの発生元が不明瞭
-      - 名前空間の衝突
-      - 暗黙的なミックスイン間のやりとり
-- [ReactHooksと似ている](https://ja.vuejs.org/guide/extras/composition-api-faq#comparison-with-react-hooks)
-- 従来は大規模開発に向かないと言われていたがこれを解決
-- このため、Options API→Composition APIの書き換えをするプロジェクトも多くある
+  - 状態を持つ関数を再利用する仕組み(コンポーザブル)
+    - ミックスインに頼らなくて良くなった
+- このため、Options API<light-icon icon="arrow-right" />Composition APIの書き換えをするプロジェクトも多くある
+- 実はこれは[ReactHooks](https://ja.vuejs.org/guide/extras/composition-api-faq#comparison-with-react-hooks)と似ている
 
 </v-clicks>
 
 ::right::
 
-<div class="flex justify-center items-center h-full" v-click="2">
+<div class="flex justify-center items-center h-full">
   <img class="px-10 h-80" src="https://ja.vuejs.org/assets/composition-api-after.ZXskY_32.png"/>
 </div>
 
@@ -298,7 +358,10 @@ layout: center
 ---
 
 - Options APIは非推奨ではないが、今後Vueとして機能の強化がはかられていくのはComposition APIになりそう
-- 上記の前提で以降のお話をします
+- 上記の前提で、以下のようなお話をします
+  - TypeScriptの型推論がよくなった！
+  - Composition APIでこんなことができる！
+- 意外と対応されていないものも結構あるという印象を持つかも🦆しれません
 
 ---
 clicks: 1
@@ -306,11 +369,12 @@ clicks: 1
 
 # 講演で取り上げられていた機能を見てみる
 
-- 関数系
-  - [`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)
-  - [`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)
-  - [`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)
-  - [`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)
+Vueの機能を全部を追うことはできないので、講演であったものをベースに...
+- マクロ/ヘルパー
+  - [`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)(3.3)
+  - [`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)(3.4)
+  - [`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)(3.5)
+  - [`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)(3.6)
 - <span :class="$clicks > 0 && 'opacity-50'">Trusted Types API</span>
   - <span :class="$clicks > 0 && 'opacity-50'">XSS対策</span>
   - <span :class="$clicks > 0 && 'opacity-50'">テンプレート内での型安全なDOM操作</span>
@@ -318,74 +382,167 @@ clicks: 1
 
 ---
 
-- [`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)
-  - Slotを型付け
-- <span class="opacity-50">[`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)</span>
-- <span class="opacity-50">[`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)</span>
-- <span class="opacity-50">[`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)</span>
+- [`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)(3.3)
+  - Slotsの型付け
+- <span class="opacity-50">[`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)(3.4)</span>
+- <span class="opacity-50">[`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)(3.5)</span>
+- <span class="opacity-50">[`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)(3.6)</span>
 
 ````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
 
 ```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
+<script setup lang="ts">
+const slots = defineSlots<{
+  default: (props: { message: string }) => void
+  header?: () => void
+}>()
 </script>
+
+<template>
+  <div>
+    <header v-if="slots.header">
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot :message="'Hello from slot!'"></slot>
+    </main>
+  </div>
+</template>
 ```
+
+````
+
+---
+
+- <span class="opacity-50">[`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)(3.3)</span>
+- [`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)(3.4)
+  - 親<light-icon icon="arrows-horizontal" />子<light-icon icon="arrows-horizontal" />孫でデータを受け渡す(`v-model`)ときは子コンポーネントに煩雑な記述が必要だったが、簡潔に書けるように
+- <span class="opacity-50">[`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)(3.5)</span>
+- <span class="opacity-50">[`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)(3.6)</span>
+
+````md magic-move {lines: true}
+
+```vue
+<script setup>
+// 子コンポーネントはデータの仲介役
+// OptionsAPIでも仲介役はmodelValueを記述してemitとしてと記述が煩雑...
+import { defineProps, defineEmits, computed } from "vue";
+
+const props = defineProps(["modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
+const model = computed({
+  get: () => props.modelValue,
+  set: (inputted) => emit("update:modelValue", inputted)
+});
+</script>
+
+<template>
+  <input type="text" v-model="model" />
+</template>
+```
+
+```vue
+<script setup>
+// defineModelで一発で済むように
+const model = defineModel();
+</script>
+
+<template>
+  <input type="text" v-model="model" />
+</template>
+```
+
+```vue
+<script setup>
+// 引数に名前を入れてあげれば名前付きになる
+const username = defineModel("username");
+const age = defineModel("age");
+</script>
+
+<template>
+  <input type="text" v-model="username" />
+  <input type="number" v-model="age" />
+</template>
+```
+
+````
+
+---
+
+- <span class="opacity-50">[`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)(3.3)</span>
+- <span class="opacity-50">[`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)(3.4)</span>
+- [`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)(3.5)
+  - `ref`を自動で型推論
+- <span class="opacity-50">[`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)(3.6)</span>
+
+````md magic-move {lines: true}
+
+```vue {*|5}
+<script setup>
+// ネイティブタグの例
+import { useTemplateRef, onMounted } from 'vue'
+
+const inputRef = useTemplateRef('input')
+onMounted(() => {
+  inputRef.value.focus()
+})
+</script>
+
+<template>
+  <input ref="input" />
+</template>
+```
+
+```vue
+<script setup lang="ts">
+// カスタムコンポーネントの例
+import { useTemplateRef } from 'vue'
+import Foo from './Foo.vue'
+import Bar from './Bar.vue'
+
+type FooType = InstanceType<typeof Foo>
+type BarType = InstanceType<typeof Bar>
+
+const compRef = useTemplateRef<FooType | BarType>('comp')
+</script>
+
+<template>
+  <component :is="Math.random() > 0.5 ? Foo : Bar" ref="comp" />
+</template>
+```
+
+````
+
+---
+
+- <span class="opacity-50">[`defineSlots`](https://ja.vuejs.org/api/sfc-script-setup#defineslots)(3.3)</span>
+- <span class="opacity-50">[`defineModel`](https://ja.vuejs.org/api/sfc-script-setup#definemodel)(3.4)</span>
+- <span class="opacity-50">[`useTemplateRef`](https://ja.vuejs.org/api/composition-api-helpers#usetemplateref)(3.5)</span>
+- [`Suspense`](https://ja.vuejs.org/guide/built-ins/suspense)(3.6)
+  - 非同期コンポーネントが解決されるまでフォールバックを表示できる(`isLoading`等の状態変数を使わなくて良くなる)
+
+````md
+
+```vue
+<script setup>
+import AsyncComponent from './components/AsyncComponent.vue'
+// 非同期コンポーネントとは以下のいずれか
+// <script setup>にトップレベルawaitがあるもの
+// async setup()と記述されているもの
+</script>
+
+<template>
+  <Suspense>
+    <template #default>
+      <AsyncComponent />
+    </template>
+    <template #fallback>
+      <span>Loading...</span>
+    </template>
+  </Suspense>
+</template>
+```
+
 ````
 
 ---
@@ -403,6 +560,69 @@ clicks: 1
   - XSS対策
   - テンプレート内での型安全なDOM操作
 - <span :class="$clicks > 0 && 'opacity-50'">Vaporモード</span>
+
+---
+
+# 今話題のXSS<mdi-security-lock class="text-yellow" />
+
+- XSS(Cross-Site Scripting)
+  - 攻撃者が、ターゲットユーザーに対して悪意のあるスクリプトを実行する攻撃
+  - 脆弱性があると任意のスクリプトが実行されるので、なんでもアリ状態になってしまう
+    - クッキーに保存されたセッションIDの盗み出し/固定化
+    - クッキーに保存された個人情報の盗み出し
+    - CSRFトークンの盗み出し
+    - 画面改ざん
+    - なりすまし
+    - アカウント締め出し
+  
+---
+
+# 今話題のXSS<mdi-security-lock class="text-yellow" />
+
+<v-clicks depth="2" at="+0">
+
+- いくつかタイプが有る
+  - 反射型
+    - URLのクエリパラメータなどでスクリプト受け取り、それがそのままレスポンスに反映されるときに実行される
+    - 攻撃者が罠URLを踏ませる
+  - 保存型
+    - DBに保存されたスクリプトを表示する際に実行される
+    - DBに保存されているので永続化している
+  - DOM Based
+    - 反射型と似ているが、サーバーを経由しないもの
+    - 反射型と同様攻撃者が罠URLを踏ませる
+    - ログに残りづらい
+
+</v-clicks>
+
+---
+
+# 今話題のXSS<mdi-security-lock class="text-yellow" />
+
+<v-clicks depth="2" at="+0">
+
+- 対策
+  - とにかく外部入力のコンテンツは信頼しない、必ずエスケープする
+  - サーバーからのレスポンスをhtmlとして解釈しないようにする(`Content-Type: application/json;`)
+    - ブラウザはhtmlが返るとそれをそのまま表示する
+
+Vueの公式ページで、[Vueのセキュリティについての記事](https://ja.vuejs.org/guide/best-practices/security)があるので、一読したほうが良いかもしれません。
+
+</v-clicks>
+
+
+---
+
+# Trusted Types API？
+
+最近過ぎて情報があまりない...
+
+---
+layout: iframe-right
+url: 'https://github.com/vuejs/rfcs/discussions/614'
+---
+
+# VueのRFC
 
 ---
 clicks: 2
@@ -438,7 +658,7 @@ url: 'https://speakerdeck.com/player/f34ec1469d5244b7a791f40fca66b41e?slide=15'
 
 # 新たなレンダリング戦略
 
-- Vue<div i-logos:vue class="inline-block"/>やReact<div i-logos:react class="inline-block"/>はレンダリング時にDOMを直接更新せず、仮想DOM(`VNode`のオブジェクトツリー)を通して管理している
+- Vue<logos-vue />やReact<logos-react />はレンダリング時にDOMを直接更新せず、仮想DOM(`VNode`のオブジェクトツリー)を通して管理している
   - 更新のたびにDOMツリー全体が再構築されることを防ぐため
 
 <v-clicks>
