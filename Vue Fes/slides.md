@@ -55,7 +55,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 # Vueを含めたJavaScriptの将来像など
 
-- Oxc - The JavaScript Oxidation Compiler⭐
+- [Oxc - The JavaScript Oxidation Compiler](https://jjdlwtezpdclgxxagxpj.supabase.co/storage/v1/object/public/common_asset/archives/boshen.pdf)⭐
 - UnJS: The Missing Tools for the Modern Web
 - [Anthony's Road to Open Source - Yak Shaving](https://talks.antfu.me/2024/vue-fes-japan/1)
 
@@ -65,7 +65,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 - Gems of Nuxt: 8 Features Every Nuxt Developer Should Know!
 - [Demystifying Vite Internals](https://speakerdeck.com/nozomuikuta/demystifying-vite-internals)
-- Async State Management with Vue Router
+- [Async State Management with Vue Router](https://data-loaders.netlify.app/1)
 - [Vue Vapor: Reinvention](https://talks.sxzz.moe/2024-10-vue-fes-japan/1)
 - [Vaporモードを大規模サービスに最速導入して学びを共有する](https://speakerdeck.com/kazukishimamoto/vapormodowoda-gui-mo-sabisunizui-su-dao-ru-sitexue-biwogong-you-suru)⭐
 - Piniaの現状と今後⭐
@@ -81,7 +81,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - [Vue 3 と Svelte 5 のランタイムを比較する 〜技術を一段深く理解する〜](https://docs.google.com/presentation/d/1xvcDewSssDweawP3ZnkQi0L-1AjaOl5oD8YFiiZuk3A/edit#slide=id.p)
 - [Deep dive into Nuxt Server Components](https://speakerdeck.com/wattanx/deep-dive-into-nuxt-server-components)
 - [Vitest Browser Mode への期待](https://speakerdeck.com/odanado/vitest-browser-mode)
-- Protocol BuffersとNuxt3で開発生産性を上げるためのスキーマファースト開発の紹介
+- [Protocol BuffersとNuxt3で開発生産性を上げるためのスキーマファースト開発の紹介](https://speakerdeck.com/tokuda109/protocol-bufferstonuxt3dekai-fa-sheng-chan-xing-woshang-gerutamenosukimahuasutokai-fa-noshao-jie)
 - [Nuxt × Vue Router の力を最大限を引き出す機能を紹介 ～Typed Pages, Nested Routes, Routes' Matching Syntax～](https://speakerdeck.com/ytr0903/nuxt-x-vue-router-noli-wozui-da-xian-niyin-kichu-suji-neng-woshao-jie)
 - Vue.jsプロジェクトに出てくるeslintと仲良くなる
 
@@ -91,7 +91,8 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 # 技術的課題を乗り越えたお話
 
 - [普通のエンジニアが頑張って30万行のNuxt3バージョンアップした話](https://speakerdeck.com/konkarin/vue-fes-japan-2024-nuxt3-version-up)
-- フロントエンドエンジニアのいない組織でVue.jsを導入するまで
+- [フロントエンドエンジニアのいない組織でVue.jsを導入するまで](https://speakerdeck.com/paycloud/arara_vue-fes-japan-2024)
+  - 聴講していませんが面白そうだったのでちゃんと見てみます
 - [VueとViteで作るUIコンポーネントライブラリ ~デザインシステムとプロダクトの理想的な分離を目指して~](https://speakerdeck.com/bengo4com/20241019-cloudsign-vuefesjapan2024-1)⭐
 - [AIとともに歩んだライブラリアップデートの道のり](https://speakerdeck.com/lmi/vue-fes-japan-2024-link-and-motivation)⭐
 - [Vue.js、Nuxtの機能を使い、大量のコピペコードをリファクタリングする](https://speakerdeck.com/igayamaguchi/⭐vue-dot-js-nuxtnoji-neng-woshi-i-da-liang-nokopipekodoworihuakutaringusuru)
@@ -274,7 +275,7 @@ layout: two-cols
 
 - Vue2.6で満を持してのComposition APIサポート
   - 論理的関心の対象がコード上でまとまるように
-    - template<light-icon icon="arrows-horizontal" />methods<light-icon icon="arrows-horizontal" />styleが分離
+    - template<light-icon icon="arrows-horizontal" />methods<light-icon icon="arrows-horizontal" />styleが分離していた
   - 状態を持った関数を再利用する仕組み
     - ミックスインは公式でもおすすめされていなかった
       - プロパティの発生元が不明瞭
