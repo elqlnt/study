@@ -79,7 +79,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 # 機能紹介系
 
-- Trusted Types APIとVue.js⭐
+- [Trusted Types APIとVue.js](https://speakerdeck.com/lycorptech_jp/20241024a)⭐
 - [v-modelの歩みを振り返る](https://speakerdeck.com/bengo4com/20241019-cloudsign-vuefesjapan2024-2)⭐
 - [Vue SFCのtemplateでTypeScriptの型を活用しよう](https://speakerdeck.com/tsukkee/vue-sfcnotemplatetetypescriptnoxing-wohuo-yong-siyou)⭐
 - [Deep dive into Nuxt Server Components](https://speakerdeck.com/wattanx/deep-dive-into-nuxt-server-components)
@@ -109,7 +109,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 - IT未経験者をVue.jsで開発できるITコンサルタントに育てあげる秘訣 - フューチャーの新人研修の取り組み⭐
 - [Vueでサクッと作って試す：STUDIOでのプロトタイピング開発](https://speakerdeck.com/ryunosukeheaven/vue-desakututozuo-ru-studio-denopurototaipingukai-fa)⭐
-- Nuxtベースの「WXT」で開発用のChrome拡張を作成する
+- [Nuxtベースの「WXT」で開発用のChrome拡張を作成する](https://speakerdeck.com/moshi1121/nuxtbesuno-wxt-dechromekuo-zhang-wozuo-cheng-suru-vue-fes-2024-rantisetusiyon)
 - 同期する都市のキャンバス：Vue.jsによる大規模メディアインスタレーションの舞台裏
 - [Nuxt UI Pro、NuxtHub、Nuxt Scripts、Nuxtエコシステムをふんだんに利用して開発するコーポレートサイト](https://speakerdeck.com/shingangan/nuxt-ui-pro-nuxthub-nuxt-scripts-nuxtekosisutemuwohundannili-yong-sitekai-fa-surukoporetosaito-at-vue-fes-japan-2024)
 - [/←このスケジュール表に立ち向かうフロントエンド開発戦略](https://speakerdeck.com/nrslib/a-front-end-development-strategy-to-tackle-a-single-slash-schedule)
