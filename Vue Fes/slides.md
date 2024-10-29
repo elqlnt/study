@@ -1074,6 +1074,11 @@ url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=19'
 
 ---
 layout: iframe
+url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=22'
+---
+
+---
+layout: iframe
 url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=23'
 ---
 
@@ -1097,6 +1102,11 @@ url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=29'
 
 ---
 layout: iframe
+url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=31'
+---
+
+---
+layout: iframe
 url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=32'
 ---
 
@@ -1110,7 +1120,7 @@ url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=32'
 - TypeScript移行(未検証)
 - PRを自動で直す(未検証)
 
-Github Copilot Enterprise<logos-github-copilot/>に期待したい部分でもあるような...
+Github Copilot<logos-github-copilot/>に期待したい部分でもあるような...
 
 ---
 
