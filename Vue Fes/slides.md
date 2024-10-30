@@ -115,10 +115,33 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 # その他
 
-- IT未経験者をVue.jsで開発できるITコンサルタントに育てあげる秘訣 - フューチャーの新人研修の取り組み<twemoji-star />
+- [IT未経験者をVue.jsで開発できるITコンサルタントに育てあげる秘訣 - フューチャーの新人研修の取り組み](https://speakerdeck.com/yut0naga1_fa/futures-new-employee-training)<twemoji-star />
 - 同期する都市のキャンバス：Vue.jsによる大規模メディアインスタレーションの舞台裏
 - [/←このスケジュール表に立ち向かうフロントエンド開発戦略](https://speakerdeck.com/nrslib/a-front-end-development-strategy-to-tackle-a-single-slash-schedule)
   - アフターパーティで発表されたモノ
+
+---
+
+# After Talk(10/29)
+
+- [ts-morphで簡単に始めるAST操作](https://speakerdeck.com/aoseyuu/ast-manipulation-with-ts-morph)
+- [Unlocking the potential of Nuxt Server Components](https://speakerdeck.com/wattanx/unlocking-the-potential-of-nuxt-server-components)
+- [RadixとArk UIを併用したマルチフレームワーク対応デザインシステムの道はあるか](https://speakerdeck.com/konkarin/multi-framework-designsystem-with-arkui-and-radixui)
+  - ありそうらしい
+
+---
+
+# After Night(10/30)
+
+- Claude vs GitHub Copilot - Vueのコード変換丸投げしてみた
+- [Pinia Colada が実現するスマートな非同期処理](https://speakerdeck.com/naokihaba/pinia-colada-gashi-xian-surusumatonafei-tong-qi-chu-li)
+  - TanStack Queryのような非同期状態管理ツールのお話[<logos-pinia />](https://pinia-colada.esm.dev/)
+- Rust で初めての npm package 開発
+- [初学者向けモダンフロントエンドとVue.jsを理解する](https://speakerdeck.com/tsukuha/chu-xin-zhe-ni-vue-dot-js-wo-jiao-eruniha)
+- Potential of Vapor (仮)
+- [ベイビーステップで実現！地図検索機能のVue2→3移行話](https://speakerdeck.com/codmoninc/achieving-baby-steps-transitioning-map-search-functionality-from-vue-2-to-vue-3)
+- [VueでWebコンポーネントを作ってReactで使う](https://speakerdeck.com/bengo4com/20241030-cloudsign-vuefes-after-night)
+  - フレームワークに依存しないWebコンポーネントを作るお話[<logos-lit />](https://lit.dev/)
 
 ---
 layout: center
@@ -755,7 +778,7 @@ url: 'https://caniuse.com/mdn-api_trustedtypes'
 
 <v-click>
 
-- <logos-lit />や<logos-angular />では対応済み
+- [<logos-lit />](https://lit.dev/)や[<logos-angular />](https://v17.angular.io/docs)では対応済み
 
 </v-click>
 
@@ -992,7 +1015,10 @@ url: 'https://speakerdeck.com/player/f34ec1469d5244b7a791f40fca66b41e?slide=110'
 layout: center
 ---
 
-<span class="text-2xl">ちなみに元々仮想DOMを使用していない<logos-svelte />というフレームワークもあります</span>
+<span class="text-2xl">ちなみに元々仮想DOMを使用していない[<logos-svelte />](https://svelte.jp/)というフレームワークもあります。</span>
+<br>
+<span class="text-xl">噂によるとVaporモードではSvelteやReactのコンポーネントをインポートして普通に使えるらしい...</span>
+
 
 ---
 layout: two-cols
@@ -1326,6 +1352,8 @@ layout: center
 - フロントエンドのエコシステムは更に進化し続ける
   - 進むRust化
 - Vue自身もどんどん便利に
+  - 新機能
+  - Vaporモード
 - Composition API + TypeScriptが主流に
   - Vue自身の強化もこれを前提にしたものになっていきそう
 - AI活用がアツい
