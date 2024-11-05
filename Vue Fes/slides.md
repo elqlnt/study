@@ -133,7 +133,7 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 
 # After Night(10/30)
 
-- Claude vs GitHub Copilot - Vueのコード変換丸投げしてみた
+- [Claude vs GitHub Copilot - Vueのコード変換丸投げしてみた](https://speakerdeck.com/kazukishimamoto/claude-vs-github-copilot-vuenokodobian-huan-wan-tou-gesitemita)
 - [Pinia Colada が実現するスマートな非同期処理](https://speakerdeck.com/naokihaba/pinia-colada-gashi-xian-surusumatonafei-tong-qi-chu-li)
   - TanStack Queryのような非同期状態管理ツールのお話[<logos-pinia />](https://pinia-colada.esm.dev/)
 - Rust で初めての npm package 開発
@@ -142,6 +142,14 @@ image: 'https://pbs.twimg.com/media/GaOMcVQbUAEards?format=jpg'
 - [ベイビーステップで実現！地図検索機能のVue2→3移行話](https://speakerdeck.com/codmoninc/achieving-baby-steps-transitioning-map-search-functionality-from-vue-2-to-vue-3)
 - [VueでWebコンポーネントを作ってReactで使う](https://speakerdeck.com/bengo4com/20241030-cloudsign-vuefes-after-night)
   - フレームワークに依存しないWebコンポーネントを作るお話[<logos-lit />](https://lit.dev/)
+
+---
+
+# After Meetup(11/1)
+
+- VitePressで見つけたアウトプット習慣
+- [ReactからVueへの転向：思考の変化とアプローチの違い](https://speakerdeck.com/calm1205/vue-fes-after-party-shift-from-react-to-vue)
+- [1つのtsxコンポーネントをVueとReact向けにビルドする](https://vue-fes-after-meetup-2024-ushironokos-projects.vercel.app)
 
 ---
 layout: center
