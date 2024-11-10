@@ -422,7 +422,7 @@ layout: two-cols
 <v-click>
 
 - Vue3.5←最新はココ
-  - メモリ効率<light-icon icon="trending-up" />
+  - メモリ効率<light-icon icon="trending-up" />(**-56%**)
   - Trusted Types API
   - `useTemplateRef`など
 - Vue3.6
@@ -448,7 +448,7 @@ layout: two-cols
 layout: center
 ---
 
-# ...Composition API+TypeScriptの話しかない
+# ...ほとんどComposition API/TypeScriptの話
 
 ---
 
@@ -486,7 +486,7 @@ layout: two-cols
 
 ---
 
-実は[Options APIでもコンポーザブルを使えるらしい。](https://ja.vuejs.org/guide/reusability/composables#using-composables-in-options-api)
+[Options APIでもコンポーザブルを使えるらしい。](https://ja.vuejs.org/guide/reusability/composables#using-composables-in-options-api)
 
 ````md magic-move {lines: true}
 
@@ -991,7 +991,7 @@ url: 'https://speakerdeck.com/player/f34ec1469d5244b7a791f40fca66b41e?slide=110'
 
 - Vueを更新してVaporモードをONにするだけ
   - Vue2<light-icon icon="arrow-right" />Vue3の破壊的変更の多さはEvanも言及しており、それが意識されていると思います
-- element-plus<logos-element/>にも対応
+- element-plus<logos-element/>も対応
 
 <v-click>
 
@@ -1035,7 +1035,9 @@ layout: two-cols
 # その他技術周りのお話し
 
 - AIを活用した事例
-  - 構文書き換え([Vue3マイグレーション](https://speakerdeck.com/lmi/vue-fes-japan-2024-link-and-motivation)、Composition API)
+  - 構文書き換え
+    - [Vue3マイグレーション](https://speakerdeck.com/lmi/vue-fes-japan-2024-link-and-motivation)
+    - Composition API
   - [テストコードの生成](https://speakerdeck.com/lmi/vue-fes-japan-2024-link-and-motivation)
   - Storybook自動生成
   - [プロトタイピング](https://speakerdeck.com/ryunosukeheaven/vue-desakututozuo-ru-studio-denopurototaipingukai-fa)
@@ -1066,7 +1068,7 @@ layout: two-cols
 layout: center
 ---
 
-# Vue3マイグレーション+Storybookの作成
+# [Aider](https://aider.chat/)を用いたVue3マイグレーション+Storybookの作成
 
 ---
 layout: iframe
@@ -1081,8 +1083,10 @@ url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=10'
 <div class="flex justify-center items-center h-full">
 
 - [Aider](https://aider.chat/)
-  - 対話式CLI
-  - コミットやPRの作成
+  - 主に開発者向けの対話式CLI
+  - Gitとの連携
+    - リポジトリを読んでくれる
+    - コミット、PR作成など
   - スクリプトによる自動化
 - 以下の事例が紹介されていました
   - Vueの非推奨構文の書き換え
@@ -1154,7 +1158,53 @@ url: 'https://speakerdeck.com/player/2b48eef29f194ab6bd5b2df9f10850f7?slide=32'
 - TypeScript移行(未検証)
 - PRを自動で直す(未検証)
 
-Github Copilot<logos-github-copilot/>に期待したい部分でもあるような...
+Github Copilot<logos-github-copilot/>に期待したい部分でもあるような...<light-icon icon="arrow-right" />
+
+---
+layout: center
+---
+
+# [<logos-claude/>](https://claude.ai/)を使ったOptions API<light-icon icon="arrow-right" />Composition API
+
+After Nightのスライドを見てみたものです。
+
+---
+layout: iframe-right
+url: 'https://speakerdeck.com/player/a8b8aa83e01b4de6b59b777b2b43cccb?slide=26'
+---
+
+<div class="flex justify-center items-center h-full">
+
+- [<logos-claude/>](https://claude.ai/)
+  - 2023年に公開された汎用的な対話型AIアシスタント
+  - Claude Sonnetエンジン
+- 以下の事例が紹介されていました
+  - Options API<light-icon icon="arrow-right" />Composition API変換のパフォーマンス
+    - Atomic Designでの例
+  - Github Copilot Chat<logos-github-copilot/>との比較
+
+</div>
+
+---
+
+# Options API<light-icon icon="arrow-right" />Composition APIにおいては...
+
+||Claude|Github Copilot Chat|
+|:---:|:---:|:---:|
+|atoms|<twemoji-thumbs-up/>|<twemoji-thumbs-up/>|
+|molecules|<twemoji-thumbs-up/>|ヌケモレがある|
+|organisms|<twemoji-thumbs-up/>|応答制限に引っかかる<twemoji-crying-face/>|
+
+Github Copilot Chatにあまり複雑なことを求めないほうが良さそう。
+リアルタイムで&少ない入力に対して補助をする、あくまでCopilotとして使う。
+<br>
+長文の指示はClaudeの方が良さそう。Vuex<light-icon icon="arrow-right" />Piniaの書き換えも行けたらしい。
+
+<v-click>
+
+最近ではCopilotのエンジンとしてClaude Sonnetが選択できるようになっているので、用途に合わせて使ってみるのも良さそう。
+
+</v-click>
 
 ---
 
@@ -1168,7 +1218,7 @@ AIとかではなく、Composition APIに変換するツールがあるらしい
 layout: center
 ---
 
-# 生成AIを使ったプロトタイピング
+# [<logos-claude/>](https://claude.ai/)を使ったプロトタイピング
 
 ---
 layout: iframe
@@ -1179,8 +1229,8 @@ url: 'https://speakerdeck.com/player/734f1e95fd8641edb2a7b2cd3116daf7?slide=12'
 layout: center
 ---
 
-- 今回紹介されていたサービスは[<logos-claude/>](https://claude.ai/)
-- 雑に指示を出せばそれっぽいイメージ+**コード**も出してくれる
+- 先ほども出てきた[<logos-claude/>](https://claude.ai/)はプロトタイピング
+- 雑に指示を出せばそれっぽいコード+**イメージ**も出してくれる
   - ライブラリやフレームワークも考えてくれる<light-icon icon="arrow-right" />
 
 ---
@@ -1366,7 +1416,7 @@ layout: center
   - Vue自身の強化もこれを前提にしたものになっていきそう
 - AI活用がアツい
 - デザイン<light-icon icon="arrow-right" />プロダクトの連携・管理
-- 最近OSS活動で燃え尽きるがﾁﾗﾁﾗ出てきているらしいので、OSS活動に興味がある人大募集中らしいです
+- <span class="text-red">最近OSS活動で燃え尽きる方がﾁﾗﾁﾗ出てきているらしいので、OSS活動に興味がある人大募集中らしいです</span>
 
 ---
 
