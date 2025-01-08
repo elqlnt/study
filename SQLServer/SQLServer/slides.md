@@ -300,6 +300,16 @@ th, td {
 
 ---
 
+# インスタンスへの接続
+
+- インスタンスへの接続は、ホスト名とポート番号で行う
+
+<div class="flex h-80 justify-center mt-10">
+  <img src="./images/protocol4.drawio.svg" alt="protocol"/>
+</div>
+
+---
+
 # インスタンスへの接続(ポートの扱い)
 
 - デフォルトインスタンス<span class="opacity-50">(現在のシステム?)</span>
