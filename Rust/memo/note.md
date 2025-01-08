@@ -318,3 +318,136 @@ match ferris.species {
 - enum内の値は複数の方でも良い
 - 列挙型のメモリサイズはそれが持つ最大要素のサイズと等しい
 - 要素の型以外に書く要素には数字地が着いており、どのタグであるかを示す
+
+### ジェネリック型
+
+- 構造体やenumを部分的に定義する
+
+```rust
+// 部分的に定義された構造体型
+struct BagOfHolding<T> {
+    item: T,
+}
+
+fn main() {
+    // 注意: ジェネリック型を使用すると、型はコンパイル時に作成される。
+    // ::<> (turbofish) で明示的に型を指定
+    let i32_bag = BagOfHolding::<i32> { item: 42 };
+    let bool_bag = BagOfHolding::<bool> { item: true };
+}
+```
+
+- 値がないときは`null`ではなく`None`
+- これが含まれるジェネリックな列挙型が`Option`
+
+```Rust
+enum Option<T> {
+    None,
+    Some(T),
+}
+```
+
+- 成功または失敗を返す列挙型が`Result`
+- OKならそのまま、失敗ならエラーを返すシンタックスシュガーがある  
+
+```Rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+
+// 以下のコードは等価
+do_something_that_might_fail()?
+
+match do_something_that_might_fail() {
+    Ok(v) => v,
+    Err(e) => return Err(e),
+}
+
+// 以下のコードは等価
+my_option.unwrap()
+match my_option {
+    Some(v) => v,
+    None => panic!("Rust によって生成されたエラーメッセージ！"),
+}
+```
+
+### メモリ管理
+
+- 変数はリソースの所有者と呼ばれる
+- RustにはGCがない
+- スコープの終わりをリソースのデストラクトと解放の場所として使用する
+  - これをドロップという
+- 所有権はつまりリソースを解放する権利
+  - 各値は所有者と呼ばれる変数と対応する
+  - どんなときも所有者は1つ
+  - 所有者がスコープから外れたら値は破棄される
+
+```Rust
+struct Foo {
+    x: i32,
+}
+
+fn main() {
+    // 構造体をインスタンス化し、変数に束縛してメモリリソースを作成
+    let foo = Foo { x: 42 };
+    // foo は所有者
+
+    println!("{}", foo.x);
+    // fooはここでドロップ
+}
+```
+
+- 各変数のドロップはLIFO
+- 構造体におけるドロップは親要素からされる
+
+```rust
+struct Bar {
+    x: i32,
+}
+
+struct Foo {
+    bar: Bar,
+}
+
+fn main() {
+    let foo = Foo { bar: Bar { x: 42 } };
+    println!("{}", foo.bar.x);
+    // foo が最初にドロップ
+    // 次に foo.bar がドロップ
+}
+```
+
+- 所有者が関数の引数として渡されると、関数の仮引数に所有者が移動する
+- 移動後は元の関数内の変数は使用できなくなる
+
+```rust
+let a = String::from("abc");
+let b = a;
+println!("{}", a); // bに所有権が移動するのでコンパイルエラー
+
+let c: u32 = 1;
+let d: u32 = c;
+println!("c = {}, d = {}", c, d); // 基本データ型はCopyトレイトを実装しているのでコンパイル可能
+
+let a = Bar::new();
+foo(a);
+// a は fooに所有されてしまうので、使えなくなる
+```
+
+- 参照型で渡すと、借用となる
+- 所有権は消費されないので、関数に渡したあとも使える
+
+```rust
+fn foo(b: &Bar) {
+  /* bを借用して利用 */
+} // 参照のbはDropされない
+
+let a = Bar::new();
+foo(&a); // 借用
+println!("{:?}", a);
+```
+
+#### 参考
+
+- [わかる！？Rustの所有権システム](https://zenn.dev/j5ik2o/articles/918c54411d5a61)
