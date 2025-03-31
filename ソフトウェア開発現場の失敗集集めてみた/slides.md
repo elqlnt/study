@@ -86,7 +86,13 @@ image: images/7.jpg
 
   </div>
   
-  <div class="w-1/2 flex justify-center" v-click >
+  <div class="w-1/2" v-click >
+
+  <div class="flex justify-center w-full">
+
+  <img src="./images/funwari.drawio.svg" class="w-2/3">
+
+  </div>
 
   <div>
 
@@ -233,6 +239,7 @@ image: images/8.jpg
 どちらも仕様通りに実装していると言える。
 どうなれば正解?
 
+  <img src="./images/aimai.drawio.svg" class="w-1/4 absolute" v-click>
 <div class="w-full flex justify-center items-center">
   <img src="./images/dialog.drawio.svg" class="w-2/3">
 </div>
