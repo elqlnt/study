@@ -195,6 +195,7 @@ image: ./images/schedule.jpg
   - 実装後に仕様がひっくりかえる
   - 全く別の仕事が舞い込む
   - メンバー離脱
+  - ...
 
   </v-clicks>
 
@@ -285,7 +286,7 @@ image: ./images/schedule.jpg
     - 今の管理ツールはどうでしょう?
       - Githubの[Projects](https://docs.github.com/ja/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)
       - エクセルはしんどい
-    - プロジェクトリーダー/開発者各人の粒度で
+    - 日程見直しのチェックポイントも設ける
 
   </div>
   <div class="w-1/2" >
